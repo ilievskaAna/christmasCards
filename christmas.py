@@ -3,7 +3,7 @@ import os
 def make_card(name):
     template = "template.txt"
     output_dir = "christmasCards"
-    output_file = os.path.join(output_dir, name + ".txt")
+    output_file = os.join(output_dir, name + ".txt")
 
     with open(template, 'r') as template_file:
         letter = template_file.read().replace("<name>", name)
@@ -16,9 +16,9 @@ def main():
     names = []
 
     with open(names_file, 'r') as file:
-        names = [name.strip() for name in file.readlines()]
+        names = [name for name in file.readlines()]
 
-    os.makedirs("christmasCards", exist_ok=True)
+    os.makedir("christmasCards", exist_ok=True)
 
     for name in names:
         make_card(name)
